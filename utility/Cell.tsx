@@ -1,24 +1,19 @@
-import {CellProps} from "@/app/type";
-
-const CellComponent = ({prop}: {prop: CellProps}) => prop {
-    const {cell, cellModifier flagModifier} = prop;
-    const cellClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
-        e.stopPropogation();
-        if (!cell.isRevealed && !cell.isFlagged){
-            cellModifier(cell.row, cell.col);
-        }
+import { CellProps } from "@/app/type";
+const CellComponent = ({ prop }: { prop: CellProps }) => {
+  const { cell, cellModifier, flagModifier } = prop;
+  const cellClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!cell.isRevealed && !cell.isFlagged) {
+      cellModifier(cell.row, cell.col);
     }
-
-    const flagClick = (e, React.MouseEvent<HTMLButtonElement>) =>{
-        e.preventDefault();
-        e.stopPropogation();
-        if (!cell.isRevealed && !cell.isFlagged){
-            flagClick(cell.row, cell.col);
-        }
+  };
+  const flagClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!cell.isRevealed && !cell.isFlagged) {
+      flagModifier(cell.row, cell.col);
     }
-
-    return(
-        ///yet to do
-    )
-}
+  };
+  return <div className="bg-[url(/cell.jpg)]"></div>;
+};
